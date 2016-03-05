@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,54 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAG-gv-FQU">
+                                <rect key="frame" x="20" y="20" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gsh-CN-bnm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETJ-jf-O1S">
+                                <rect key="frame" x="20" y="98" width="30" height="30"/>
+                                <state key="normal" title="load"/>
+                                <connections>
+                                    <action selector="load:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pmt-hN-aXb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofB-7x-8Qr">
+                                <rect key="frame" x="20" y="188" width="36" height="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendPDF:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nBn-BW-zO6"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJ5-A0-rH2">
+                                <rect key="frame" x="62" y="20" width="518" height="560"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ofB-7x-8Qr" firstAttribute="top" secondItem="ETJ-jf-O1S" secondAttribute="bottom" constant="60" id="5CK-Dc-qDs"/>
+                            <constraint firstItem="JAG-gv-FQU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="LEv-EN-Tt6"/>
+                            <constraint firstItem="AJ5-A0-rH2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Mp9-Kw-vdU"/>
+                            <constraint firstItem="ETJ-jf-O1S" firstAttribute="leading" secondItem="ofB-7x-8Qr" secondAttribute="leading" id="SjT-6m-Sdc"/>
+                            <constraint firstItem="ETJ-jf-O1S" firstAttribute="top" secondItem="JAG-gv-FQU" secondAttribute="bottom" constant="48" id="fhP-ug-QVy"/>
+                            <constraint firstItem="AJ5-A0-rH2" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="iu7-av-oxf"/>
+                            <constraint firstItem="JAG-gv-FQU" firstAttribute="top" secondItem="AJ5-A0-rH2" secondAttribute="top" id="jNb-ye-EAc"/>
+                            <constraint firstAttribute="bottom" secondItem="AJ5-A0-rH2" secondAttribute="bottom" constant="20" symbolic="YES" id="lUE-ej-1O6"/>
+                            <constraint firstItem="AJ5-A0-rH2" firstAttribute="leading" secondItem="JAG-gv-FQU" secondAttribute="trailing" constant="8" symbolic="YES" id="nqi-A3-UHK"/>
+                            <constraint firstItem="ETJ-jf-O1S" firstAttribute="leading" secondItem="JAG-gv-FQU" secondAttribute="leading" id="vsj-PH-CCP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="AJ5-A0-rH2" id="Pay-18-GwE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="261" y="325"/>
         </scene>
     </scenes>
 </document>
